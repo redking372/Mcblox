@@ -1,0 +1,17 @@
+body{
+background-color:#1e1e1e;
+color:white;
+font-family:Arial;
+text-align:center;
+}
+
+h1{
+color:#00ff88;
+}
+
+a{
+color:#00ff88;
+margin:10px;
+font-size:20px;
+text-decoration:none;
+}
