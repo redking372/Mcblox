@@ -2,86 +2,168 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MCBLOX</title>
-<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#111;
+color:white;
+}
+
+/* NAVBAR */
+
+.navbar{
+background:#1b1b1b;
+padding:14px;
+text-align:center;
+border-bottom:2px solid #333;
+}
+
+.navlinks{
+margin-top:6px;
+}
+
+.navlinks a{
+color:white;
+text-decoration:none;
+margin:0 10px;
+font-size:15px;
+}
+
+/* SECTION */
+
+.section{
+padding:20px;
+border-bottom:2px solid #333;
+}
+
+/* FRIENDS */
+
+.friend{
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:10px;
+}
+
+.avatar{
+width:40px;
+height:40px;
+background:#333;
+border-radius:50%;
+}
+
+/* GAME */
+
+.game{
+margin-top:10px;
+}
+
+.gamebox{
+width:120px;
+height:80px;
+background:#333;
+margin-bottom:10px;
+}
+
+.play{
+background:#00bfff;
+border:none;
+padding:8px 14px;
+border-radius:6px;
+color:white;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+.footer{
+text-align:center;
+padding:20px;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<header>
+<div class="navbar">
 
-<h1>MCBLOX</h1>
+<h2>MCBLOX</h2>
 
-<nav>
-<a class="active">Home</a>
-<a>Shop</a>
-<a>Notifications</a>
-<a>Settings</a>
-<a>Dev</a>
-</nav>
+<div class="navlinks">
+<a href="#">Home</a>
+<a href="#">Shop</a>
+<a href="#">Notification</a>
+<a href="#">Settings</a>
+<a href="#">Wiki</a>
+<a href="#">Dev</a>
+<a href="#">Help</a>
+</div>
 
-</header>
+</div>
 
+<div class="section">
 
 <h2>Home</h2>
 
+</div>
+
+<div class="section">
 
 <h3>News</h3>
-<p>No news :(</p>
+
+<p>No News :(</p>
+
+</div>
+
+<div class="section">
 
 <h3>Friends</h3>
 
-<div class="friends">
-
 <div class="friend">
 <div class="avatar"></div>
-<p>Steve</p>
-<span class="offline">Offline</span>
+<p>Steve — Offline</p>
 </div>
 
 <div class="friend">
 <div class="avatar"></div>
-<p>Alex</p>
-<span class="online">Online</span>
-</div>
-
-<div class="friend">
-<div class="avatar"></div>
-<p>Noob</p>
-<span class="away">Away</span>
-</div>
-
-<div class="friend add">
-<div class="avatar">+</div>
-<p>Add</p>
+<p>+ Add more friends</p>
 </div>
 
 </div>
 
-
-
+<div class="section">
 
 <h3>Games</h3>
 
-<div class="gamebox">
+<div class="game">
 
-<h4>Steal a Block</h4>
+<div class="gamebox"></div>
 
-<p>A game server where you can steal blocks and earn money.</p>
+<p><b>Steal a Block</b></p>
 
-<button onclick="playGame()">Play</button>
+<p>A game where you can steal and earn with blocks.</p>
+
+<button class="play">Play</button>
 
 </div>
 
+</div>
 
-<script>
+<div class="footer">
 
-function playGame(){
-alert("Server not built yet :( ");
-}
+<p>MCBLOX Official</p>
+<p>© Copyright 2026</p>
+<p>Owner — Red King</p>
 
-</script>
+</div>
 
 </body>
+
 </html>
