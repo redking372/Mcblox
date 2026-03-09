@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MCBLOX Sign Up</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#111;
+color:white;
+text-align:center;
+}
+
+.box{
+margin-top:80px;
+}
+
+input{
+display:block;
+margin:10px auto;
+padding:10px;
+width:220px;
+border-radius:5px;
+border:none;
+}
+
+button{
+background:#00bfff;
+color:white;
+border:none;
+padding:10px 20px;
+margin-top:10px;
+border-radius:6px;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>MCBLOX</h1>
+<h2>Sign Up</h2>
+
+<input id="playerName" placeholder="Player Name">
+<input id="username" placeholder="Username">
+<input id="mcUsername" placeholder="MC Username">
+<input id="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="signup()">Create Account</button>
+
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyAqLisVJ9sgz56z_D0dFR1pOMaV6fFo5tw",
+authDomain: "mcblox-bd512.firebaseapp.com",
+projectId: "mcblox-bd512",
+storageBucket: "mcblox-bd512.firebasestorage.app",
+messagingSenderId: "150494713144",
+appId: "1:150494713144:web:e498abc15700fdb1921dcd",
+measurementId: "G-DXF8M78DRS"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+window.signup = async function(){
+
+const playerName = document.getElementById("playerName").value;
+const username = document.getElementById("username").value;
+const mcUsername = document.getElementById("mcUsername").value;
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+
+const userCredential = await createUserWithEmailAndPassword(auth,email,password);
+const user = userCredential.user;
+
+await setDoc(doc(db,"users",user.uid),{
+playerName:playerName,
+username:username,
+mcUsername:mcUsername,
+email:email
+});
+
+alert("Account created!");
+
+window.location.href="index.html";
+
+}
+
+</script>
+
+</body>
+</html>
