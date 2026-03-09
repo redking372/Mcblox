@@ -36,8 +36,42 @@ margin-top:10px;
 border-radius:6px;
 cursor:pointer;
 }
+.errorBox{
+display:none;
+background:#ff4444;
+color:white;
+padding:8px;
+margin:10px auto;
+width:220px;
+border-radius:6px;
+font-size:14px;
+}
 
+.error{
+border:2px solid red;
+}
+.passBox{
+position:relative;
+width:220px;
+margin:10px auto;
+}
+
+.passBox input{
+width:100%;
+padding-right:35px;
+}
+
+.eye{
+position:absolute;
+right:10px;
+top:50%;
+transform:translateY(-50%);
+cursor:pointer;
+font-size:18px;
+}
 </style>
+
+
 
 </head>
 
@@ -48,8 +82,13 @@ cursor:pointer;
 <h1>MCBLOX</h1>
 <h2>Log In</h2>
 
+<div id="errorBox" class="errorBox">⚠ Wrong email or password</div>
+
 <input id="email" placeholder="Email">
+  <div class="passBox">
 <input id="password" type="password" placeholder="Password">
+<span onclick="togglePassword()" class="eye">👁️</span>
+  </div>
 
 <button onclick="login()">Log In</button>
 
@@ -88,11 +127,25 @@ window.location.href="index.html";
 
 .catch((error) => {
 
-alert("Login failed");
+document.getElementById("errorBox").style.display="block";
+document.getElementById("email").classList.add("error");
+document.getElementById("password").classList.add("error");
 
 });
 
 }
+function togglePassword(){
+
+const pass = document.getElementById("password");
+
+if(pass.type === "password"){
+pass.type = "text";
+}else{
+pass.type = "password";
+}
+
+}
+
 
 </script>
 
