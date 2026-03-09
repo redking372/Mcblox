@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MCBLOX Settings</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#111;
+color:white;
+text-align:center;
+}
+
+.box{
+margin-top:120px;
+}
+
+button{
+background:#ff4444;
+color:white;
+border:none;
+padding:12px 25px;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#cc0000;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>MCBLOX</h1>
+<h2>Settings</h2>
+
+<p>More settings coming soon.</p>
+
+<button onclick="logout()">Log Out</button>
+
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAqLisVJ9sgz56z_D0dFR1pOMaV6fFo5tw",
+  authDomain: "mcblox-bd512.firebaseapp.com",
+  projectId: "mcblox-bd512",
+  storageBucket: "mcblox-bd512.firebasestorage.app",
+  messagingSenderId: "150494713144",
+  appId: "1:150494713144:web:e498abc15700fdb1921dcd",
+  measurementId: "G-DXF8M78DRS"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+window.logout = function(){
+
+signOut(auth).then(() => {
+
+window.location.href = "continue.html";
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
