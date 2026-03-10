@@ -1,108 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>MCBLOX Sign Up</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<style>
-
-body{
-margin:0;
-font-family:Arial;
-background:#111;
-color:white;
-text-align:center;
-}
-
-.box{
-margin-top:80px;
-}
-
-input{
-display:block;
-margin:10px auto;
-padding:10px;
-width:220px;
-border-radius:5px;
-border:none;
-}
-
-button{
-background:#00bfff;
-color:white;
-border:none;
-padding:10px 20px;
-margin-top:10px;
-border-radius:6px;
-cursor:pointer;
-}
-
-</style>
+    <meta charset="UTF-8">
+    <title>MC Blox | Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body>
+    <div class="auth-box">
+        <h1 class="logo">MC Blox</h1>
+        <p>Create your account</p>
+        <input type="email" id="email" placeholder="Email Address">
+        <input type="text" id="mcName" placeholder="Minecraft Username">
+        <input type="password" id="pass" placeholder="Password">
+        
+        <p id="err" style="color: #ff4d4d; font-size: 12px; margin: 10px 0;"></p>
+        
+        <button class="btn-blue" id="signupBtn">Sign Up</button>
+        <p style="font-size: 13px; margin-top: 15px;">Already have an account? <a href="login.html" style="color: var(--accent);">Log In</a></p>
+    </div>
 
-<div class="box">
+    <script type="module">
+        import { auth, db } from "./firebase-config.js";
+        import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+        import { doc, setDoc } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
 
-<h1>MCBLOX</h1>
-<h2>Sign Up</h2>
+        document.getElementById('signupBtn').onclick = async () => {
+            const email = document.getElementById('email').value;
+            const pass = document.getElementById('pass').value;
+            const mc = document.getElementById('mcName').value;
+            const errDiv = document.getElementById('err');
 
-<input id="playerName" placeholder="Player Name">
-<input id="username" placeholder="Username">
-<input id="mcUsername" placeholder="MC Username">
-<input id="email" placeholder="Email">
-<input id="password" type="password" placeholder="Password">
+            if(!email || !pass || !mc) {
+                errDiv.innerText = "Please fill in all fields.";
+                return;
+            }
 
-<button onclick="signup()">Create Account</button>
-
-</div>
-
-<script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
-
-const firebaseConfig = {
-apiKey: "AIzaSyAqLisVJ9sgz56z_D0dFR1pOMaV6fFo5tw",
-authDomain: "mcblox-bd512.firebaseapp.com",
-projectId: "mcblox-bd512",
-storageBucket: "mcblox-bd512.firebasestorage.app",
-messagingSenderId: "150494713144",
-appId: "1:150494713144:web:e498abc15700fdb1921dcd",
-measurementId: "G-DXF8M78DRS"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
-window.signup = async function(){
-
-const playerName = document.getElementById("playerName").value;
-const username = document.getElementById("username").value;
-const mcUsername = document.getElementById("mcUsername").value;
-const email = document.getElementById("email").value;
-const password = document.getElementById("password").value;
-
-const userCredential = await createUserWithEmailAndPassword(auth,email,password);
-const user = userCredential.user;
-
-await setDoc(doc(db,"users",user.uid),{
-playerName:playerName,
-username:username,
-mcUsername:mcUsername,
-email:email
-});
-
-alert("Account created!");
-
-window.location.href="index.html";
-
-}
-
-</script>
-
+            try {
+                const res = await createUserWithEmailAndPassword(auth, email, pass);
+                // Saving user data to your Firestore 'mcblox-bd512'
+                await setDoc(doc(db, "users", res.user.uid), {
+                    mcUsername: mc,
+                    blocksStolen: 0,
+                    role: "Player",
+                    createdAt: new Date()
+                });
+                window.location.href = "continue.html";
+            } catch (e) {
+                errDiv.innerText = e.message;
+            }
+        };
+    </script>
 </body>
 </html>
