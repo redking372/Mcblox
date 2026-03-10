@@ -1,153 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>MCBLOX Login</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<style>
-
-body{
-margin:0;
-font-family:Arial;
-background:#111;
-color:white;
-text-align:center;
-}
-
-.box{
-margin-top:120px;
-}
-
-input{
-display:block;
-margin:10px auto;
-padding:10px;
-width:220px;
-border-radius:5px;
-border:none;
-}
-
-button{
-background:#00bfff;
-color:white;
-border:none;
-padding:10px 20px;
-margin-top:10px;
-border-radius:6px;
-cursor:pointer;
-}
-.errorBox{
-display:none;
-background:#ff4444;
-color:white;
-padding:8px;
-margin:10px auto;
-width:220px;
-border-radius:6px;
-font-size:14px;
-}
-
-.error{
-border:2px solid red;
-}
-.passBox{
-position:relative;
-width:220px;
-margin:10px auto;
-}
-
-.passBox input{
-width:100%;
-padding-right:35px;
-}
-
-.eye{
-position:absolute;
-right:10px;
-top:50%;
-transform:translateY(-50%);
-cursor:pointer;
-font-size:18px;
-}
-</style>
-
-
-
+    <meta charset="UTF-8">
+    <title>MC Blox | Login</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body>
+    <div class="auth-box">
+        <h1 class="logo">MC Blox</h1>
+        <p>Login to play</p>
+        <input type="email" id="email" placeholder="Email Address">
+        <input type="password" id="pass" placeholder="Password">
+        
+        <p id="err" style="color: #ff4d4d; font-size: 12px; margin: 10px 0;"></p>
 
-<div class="box">
+        <button class="btn-blue" id="loginBtn">Log In</button>
+        <p style="font-size: 13px; margin-top: 15px;">New to MC Blox? <a href="signup.html" style="color: var(--accent);">Sign Up</a></p>
+    </div>
 
-<h1>MCBLOX</h1>
-<h2>Log In</h2>
+    <script type="module">
+        import { auth } from "./firebase-config.js";
+        import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
 
-<div id="errorBox" class="errorBox">⚠ Wrong email or password</div>
+        document.getElementById('loginBtn').onclick = async () => {
+            const email = document.getElementById('email').value;
+            const pass = document.getElementById('pass').value;
+            const errDiv = document.getElementById('err');
 
-<input id="email" placeholder="Email">
-  <div class="passBox">
-<input id="password" type="password" placeholder="Password">
-<span onclick="togglePassword()" class="eye">👁️</span>
-  </div>
-
-<button onclick="window.login()">Log In</button>
-
-</div>
-
-<script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
-
-const firebaseConfig = {
-apiKey: "AIzaSyAqLisVJ9sgz56z_D0dFR1pOMaV6fFo5tw",
-authDomain: "mcblox-bd512.firebaseapp.com",
-projectId: "mcblox-bd512",
-storageBucket: "mcblox-bd512.firebasestorage.app",
-messagingSenderId: "150494713144",
-appId: "1:150494713144:web:e498abc15700fdb1921dcd",
-measurementId: "G-DXF8M78DRS"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-window.login = function(){
-
-const email = document.getElementById("email").value;
-const password = document.getElementById("password").value;
-
-signInWithEmailAndPassword(auth,email,password)
-
-.then(() => {
-
-window.location.href="index.html";
-
-})
-
-.catch((error) => {
-
-document.getElementById("errorBox").style.display="block";
-document.getElementById("email").classList.add("error");
-document.getElementById("password").classList.add("error");
-
-});
-
-}
-window.togglePassword = function(){
-
-const pass = document.getElementById("password");
-
-if(pass.type === "password"){
-pass.type = "text";
-}else{
-pass.type = "password";
-}
-
-}
-
-
-</script>
-
+            try {
+                await signInWithEmailAndPassword(auth, email, pass);
+                window.location.href = "continue.html";
+            } catch (e) {
+                errDiv.innerText = "Invalid email or password.";
+            }
+        };
+    </script>
 </body>
 </html>
+
