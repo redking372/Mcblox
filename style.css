@@ -1,90 +1,88 @@
-body{
-background:#1e1e1e;
-color:white;
-font-family:Arial;
-margin:0;
-padding:0;
+:root {
+    --bg: #121212;
+    --nav: #1e1e1e;
+    --card: #252525;
+    --accent: #00a2ff;
+    --white: #ffffff;
+    --gray: #b3b3b3;
+    --green: #00e676;
+    --red: #ff4d4d;
 }
 
-header{
-background:#111;
-padding:15px;
-text-align:center;
+body {
+    background-color: var(--bg);
+    color: var(--white);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-nav{
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
+/* Navbar */
+.navbar {
+    background: var(--nav);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
 }
 
-nav a{
-color:white;
-text-decoration:none;
-font-size:16px;
+.nav-links a {
+    color: var(--gray);
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 14px;
 }
 
-.active{
-border-bottom:3px solid #00ff88;
+.nav-links a.active { color: var(--white); font-weight: bold; }
+
+/* Containers */
+.container { padding: 20px 5%; max-width: 1000px; margin: auto; }
+
+.section-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
 }
 
-h2,h3{
-margin-left:15px;
+/* Auth Boxes */
+.auth-box {
+    background: var(--nav);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 350px;
+    margin: 80px auto;
+    text-align: center;
 }
 
-.friends{
-display:flex;
-gap:15px;
-overflow-x:auto;
-padding:15px;
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: #121212;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 8px;
+    box-sizing: border-box;
 }
 
-.friend{
-background:#2b2b2b;
-padding:10px;
-border-radius:12px;
-text-align:center;
-min-width:80px;
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.avatar{
-width:50px;
-height:50px;
-background:#555;
-border-radius:50%;
-margin:auto;
-margin-bottom:5px;
-display:flex;
-align-items:center;
-justify-content:center;
-}
+.btn-blue { background: var(--accent); color: white; }
+.btn-play { background: var(--green); color: black; width: auto; padding: 10px 40px; }
+.btn-red { background: var(--red); color: white; width: auto; }
 
-.online{
-color:#00ff88;
-}
+/* Friends & Game Grid */
+.grid { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 10px; }
+.friend { background: #333; padding: 10px; border-radius: 10px; text-align: center; min-width: 70px; }
 
-.offline{
-color:gray;
-}
-
-.away{
-color:orange;
-}
-
-.gamebox{
-background:#2b2b2b;
-margin:20px;
-padding:20px;
-border-radius:12px;
-text-align:center;
-}
-
-button{
-background:#00ff88;
-border:none;
-padding:12px 20px;
-font-size:16px;
-border-radius:8px;
-cursor:pointer;
-}
+footer { text-align: center; padding: 40px; color: var(--gray); font-size: 12px; border-top: 1px solid #333; }
