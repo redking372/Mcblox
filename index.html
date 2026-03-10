@@ -1,178 +1,47 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MCBLOX</title>
-
-<style>
-
-body{
-margin:0;
-font-family:Arial;
-background:#111;
-color:white;
-}
-
-/* NAVBAR */
-
-.navbar{
-background:#1b1b1b;
-padding:14px;
-text-align:center;
-border-bottom:2px solid #333;
-}
-
-.navlinks{
-margin-top:6px;
-display:flex;
-justify-content:center;
-flex-wrap:nowrap;
-gap:12px;
-}
-
-.navlinks a{
-color:white;
-text-decoration:none;
-font-size:14px;
-white-space:nowrap;
-}
-
-
-/* SECTION */
-
-.section{
-padding:20px;
-border-bottom:2px solid #333;
-}
-
-/* FRIENDS */
-
-.friend{
-display:flex;
-align-items:center;
-gap:10px;
-margin-top:10px;
-}
-
-.avatar{
-width:40px;
-height:40px;
-background:#333;
-border-radius:50%;
-}
-
-/* GAME */
-
-.game{
-margin-top:10px;
-}
-
-.gamebox{
-width:120px;
-height:80px;
-background:#333;
-margin-bottom:10px;
-}
-
-.play{
-background:#00bfff;
-border:none;
-padding:8px 14px;
-border-radius:6px;
-color:white;
-cursor:pointer;
-}
-
-/* FOOTER */
-
-.footer{
-text-align:center;
-padding:20px;
-}
-
-</style>
-
+    <title>MC Blox | Home</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body>
+    <nav class="navbar">
+        <a href="index.html" style="color:white; text-decoration:none; font-weight:bold;">MC Blox</a>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="settings.html">Settings</a>
+        </div>
+    </nav>
 
-<div class="navbar">
+    <div class="container">
+        <h1>Home</h1>
+        <div class="section-card">
+            <h3>News</h3>
+            <p style="color:gray">No News :(</p>
+        </div>
 
-<h2>MCBLOX</h2>
-<hr>  
+        <div class="section-card">
+            <h3>Friends</h3>
+            <div class="grid">
+                <div class="friend">👤<br>Steve</div>
+                <div class="friend">➕<br>Add</div>
+            </div>
+        </div>
 
-<div class="navlinks">
-<a href="index.html">Home</a>
-<a href="shop.html">Shop</a>
-<a href="notification.html">Notification</a>
-<a href="settings.html">Settings</a>
-<a href="wiki.html">Wiki</a>
-<a href="events.html">Events</a>
-<a href="dev.html">Dev</a>
-<a href="help.html">Help</a>
-<a href="about.html">About</a>
-</div>
-<hr>
+        <div class="section-card">
+            <div style="display:flex; gap:20px;">
+                <div style="width:100px; height:100px; background:#444; border-radius:10px;"></div>
+                <div>
+                    <h3>Steal a Block</h3>
+                    <p style="font-size:14px; color:gray;">Steal and earn blocks!</p>
+                    <button class="btn-play">PLAY</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-</div>
-
-<div class="section">
-
-<h2>Home</h2>
-
-</div>
-
-<div class="section">
-
-<h3>News</h3>
-
-<p>No News :(</p>
-
-</div>
-
-<div class="section">
-
-<h3>Friends</h3>
-
-<div class="friend">
-<div class="avatar"></div>
-<p>Steve — Offline</p>
-</div>
-
-<div class="friend">
-<div class="avatar"></div>
-<p>+ Add more friends</p>
-</div>
-
-</div>
-
-<div class="section">
-
-<h3>Games</h3>
-
-<div class="game">
-
-<div class="gamebox"></div>
-
-<p><b>Steal a Block</b></p>
-
-<p>A game where you can steal and earn with blocks.</p>
-
-<button class="play">Play</button>
-
-</div>
-
-</div>
-
-<div class="footer">
-
-<p>MCBLOX Official</p>
-<p>© Copyright 2026</p>
-<p>Owner — Red King</p>
-
-</div>
-
+    <footer>MC Blox &copy; 2026 | Owner: Red King</footer>
 </body>
-
 </html>
+
