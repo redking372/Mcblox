@@ -2,52 +2,142 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MC Blox | Settings</title>
-    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MC Blox - Settings</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            flex: 1;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: #242424;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            font-size: 1.1rem;
+            margin: 0 0 10px 0;
+        }
+
+        .card p {
+            color: #aaaaaa;
+            font-size: 0.9rem;
+            margin: 0 0 15px 0;
+        }
+
+        .account-actions {
+            border: 1px solid #4a2525;
+        }
+
+        /* Made the Log Out button much bigger */
+        .logout-btn {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 15px 40px; 
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .logout-btn:hover {
+            background-color: #ff3333;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.8rem;
+            color: #888888;
+            background-color: #0f0f0f;
+        }
+
+        .social-section {
+            margin-top: 20px;
+        }
+
+        .social-section p {
+            margin-bottom: 10px;
+            color: #aaaaaa;
+            font-size: 0.9rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .icon-placeholder {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #555;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 0.7rem;
+            background-color: #222;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <a href="index.html" class="logo">MC Blox</a>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="settings.html" class="active">Settings</a>
-        </div>
-    </nav>
 
     <div class="container">
         <h1>Settings</h1>
         
-        <div class="section-card">
-            <h3>User Profile</h3>
-            <p style="color: var(--gray);">Manage your account details here.</p>
-            <!-- Future: Display MC Username here using Firestore -->
+        <div class="card">
+            <h2>User Profile</h2>
+            <p>Manage your account details here.</p>
         </div>
 
-        <div class="section-card" style="border-color: var(--red);">
-            <h3>Account Actions</h3>
-            <p>Done playing for now?</p>
-            <button class="btn-red" id="logoutBtn">Log Out</button>
+        <div class="card account-actions">
+            <h2>Account Actions</h2>
+            <!-- Removed the "Done playing for now?" text here -->
+            <button class="logout-btn">Log Out</button>
         </div>
     </div>
 
-    <script type="module">
-        import { auth } from "./firebase-config.js";
-        import { signOut } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
-
-        document.getElementById('logoutBtn').onclick = async () => {
-            try {
-                await signOut(auth);
-                // After logging out, send them back to the login page
-                window.location.href = "login.html";
-            } catch (error) {
-                console.error("Error signing out: ", error);
-            }
-        };
-    </script>
-
     <footer>
-        <p>MC Blox &copy; 2026 | Owner: Red King</p>
+        <div>MC Blox © 2026 | Owner: Red King</div>
+        
+        <!-- Added the Socials section as requested -->
+        <div class="social-section">
+            <p>also visit our socials</p>
+            <div class="social-icons">
+                <a href="#" class="icon-placeholder">YouTube</a>
+                <a href="#" class="icon-placeholder">Insta</a>
+                <a href="#" class="icon-placeholder">FB</a>
+                <a href="#" class="icon-placeholder">Roblox</a>
+            </div>
+        </div>
     </footer>
+
 </body>
 </html>
