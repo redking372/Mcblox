@@ -176,12 +176,13 @@
 
     <script>
         document.getElementById('logoutBtn').addEventListener('click', function() {
-            // 1. Clear saved login data
+            // Clears any stored data that keeps you logged in
             localStorage.clear();
             sessionStorage.clear();
 
-            // 2. Redirect to continue.html
-            window.location.href = 'continue.html';
+            // Redirects you back to the page where you log in
+            // Make sure the file name below matches your login page file!
+            window.location.href = 'login.html'; 
         });
     </script>
 
