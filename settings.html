@@ -80,7 +80,7 @@
             border: 1px solid #4a2525;
         }
 
-        /* Large Log Out Button */
+        /* Big Red Log Out Button */
         .logout-btn {
             background-color: #ff4d4d;
             color: white;
@@ -91,11 +91,12 @@
             border-radius: 6px;
             cursor: pointer;
             width: fit-content;
+            transition: 0.2s;
         }
 
         .logout-btn:active {
             background-color: #cc0000;
-            transform: scale(0.98);
+            transform: scale(0.95);
         }
 
         footer {
@@ -155,7 +156,6 @@
 
         <div class="card account-actions">
             <h2>Account Actions</h2>
-            <!-- Added id="logout" so the script can find it -->
             <button class="logout-btn" id="logoutBtn">Log Out</button>
         </div>
     </div>
@@ -175,13 +175,13 @@
     </footer>
 
     <script>
-        // This makes the button actually work!
         document.getElementById('logoutBtn').addEventListener('click', function() {
-            // Replace 'login.html' with your actual login or home page link
-            window.location.href = 'index.html'; 
-            
-            // If you have a special logout system, let me know and we can add that here!
-            alert("Logging out..."); 
+            // 1. Clear saved login data
+            localStorage.clear();
+            sessionStorage.clear();
+
+            // 2. Redirect to continue.html
+            window.location.href = 'continue.html';
         });
     </script>
 
