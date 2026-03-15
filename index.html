@@ -1,47 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>MC Blox | Home</title>
+    <meta charset="UTF-8">
+    <title>MCBLOX - Home</title>
     <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+
     <nav class="navbar">
-        <a href="index.html" style="color:white; text-decoration:none; font-weight:bold;">MC Blox</a>
-        <div class="nav-links">
-            <a href="index.html" class="active">Home</a>
-            <a href="settings.html">Settings</a>
+        <div class="nav-left">
+            <a href="menu.html" style="color:white; text-decoration:none; font-size:24px;">☰</a>
+            <a href="inbox.html" style="color:white; text-decoration:none; font-size:24px;">✉</a>
+        </div>
+        <div class="logo">
+            <img src="1000220237.png" alt="MCBLOX Logo">
+        </div>
+        <div class="nav-right">
+            <div class="currency-box">
+                <img src="1000220061.png" alt="Bloxcoin">
+                <span>100+</span>
+            </div>
+            <div class="profile-icon">👤</div>
         </div>
     </nav>
 
-    <div class="container">
-        <h1>Home</h1>
-        <div class="section-card">
-            <h3>News</h3>
-            <p style="color:gray">No News :(</p>
-        </div>
-
-        <div class="section-card">
-            <h3>Friends</h3>
-            <div class="grid">
-                <div class="friend">👤<br>Steve</div>
-                <div class="friend">➕<br>Add</div>
+    <div class="content">
+        <div class="section">
+            <h2>Events 🖼️</h2>
+            <div class="event-card">
+                <h3>Summer Event 2026 ☀️</h3>
+                <ul>
+                    <li>New items</li>
+                    <li>Effects</li>
+                    <li>Screens / Backgrounds</li>
+                </ul>
+                <p><small>Ends July 2026</small></p>
             </div>
         </div>
 
-        <div class="section-card">
-            <div style="display:flex; gap:20px;">
-                <div style="width:100px; height:100px; background:#444; border-radius:10px;"></div>
-                <div>
-                    <h3>Steal a Block</h3>
-                    <p style="font-size:14px; color:gray;">Steal and earn blocks!</p>
-                    <button class="btn-play">PLAY</button>
-                </div>
+        <div class="section">
+            <h2>Friends</h2>
+            <button class="play-btn">Add Friend +</button>
+            <p><small>Search username to add friends.</small></p>
+        </div>
+
+        <div class="section">
+            <h2>Games</h2>
+            <div class="game-item">
+                <img src="path_to_steal_block_image.jpg" alt="Steal a Block" style="width:100px; display:block; margin-bottom:5px;">
+                <strong>Steal a Block</strong><br><br>
+                <button class="play-btn" onclick="location.href='game.html'">PLAY</button>
             </div>
         </div>
     </div>
 
-    <footer>MC Blox &copy; 2026 | Owner: Red King</footer>
 </body>
 </html>
-
