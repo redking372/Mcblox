@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Friend</title>
+
+<style>
+body{
+font-family:Arial;
+margin:0;
+background:#f3f3f3;
+}
+
+.navbar{
+background:#1f1f1f;
+color:white;
+padding:10px;
+}
+
+.container{
+padding:15px;
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:10px;
+}
+
+button{
+background:#2ecc71;
+border:none;
+padding:10px;
+margin-top:10px;
+color:white;
+width:100%;
+border-radius:5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+← <a href="index.html" style="color:white;text-decoration:none;">Back</a>
+</div>
+
+<div class="container">
+
+<h3>Add Friend</h3>
+
+<input id="name" placeholder="Enter username">
+
+<button onclick="addFriend()">Add Friend</button>
+
+</div>
+
+<script>
+
+function addFriend(){
+
+let name=document.getElementById("name").value
+
+if(!name)return
+
+let friends = JSON.parse(localStorage.getItem("friends")) || []
+
+friends.push(name)
+
+localStorage.setItem("friends",JSON.stringify(friends))
+
+location.href="index.html"
+
+}
+
+</script>
+
+</body>
+</html>
