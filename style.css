@@ -1,88 +1,92 @@
-:root {
-    --bg: #121212;
-    --nav: #1e1e1e;
-    --card: #252525;
-    --accent: #00a2ff;
-    --white: #ffffff;
-    --gray: #b3b3b3;
-    --green: #00e676;
-    --red: #ff4d4d;
-}
-
+/* General Styling */
 body {
-    background-color: var(--bg);
-    color: var(--white);
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
 }
 
-/* Navbar */
+/* Fixed Navigation Bar */
 .navbar {
-    background: var(--nav);
-    padding: 15px 5%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #222;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #333;
-}
-
-.nav-links a {
-    color: var(--gray);
-    text-decoration: none;
-    margin-left: 15px;
-    font-size: 14px;
-}
-
-.nav-links a.active { color: var(--white); font-weight: bold; }
-
-/* Containers */
-.container { padding: 20px 5%; max-width: 1000px; margin: auto; }
-
-.section-card {
-    background: var(--card);
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #333;
-}
-
-/* Auth Boxes */
-.auth-box {
-    background: var(--nav);
-    padding: 30px;
-    border-radius: 15px;
-    max-width: 350px;
-    margin: 80px auto;
-    text-align: center;
-}
-
-input {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    background: #121212;
-    border: 1px solid #444;
-    color: white;
-    border-radius: 8px;
+    justify-content: space-between;
+    padding: 0 15px;
     box-sizing: border-box;
+    z-index: 1000;
+    color: white;
 }
 
-button {
-    width: 100%;
-    padding: 12px;
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.currency-box {
+    background: #444;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.currency-box img {
+    width: 20px;
+}
+
+/* Page Content Padding for Fixed Nav */
+.content {
+    margin-top: 70px;
+    padding: 15px;
+}
+
+/* Sections (Events, Friends, Games) */
+.section {
+    background: white;
+    margin-bottom: 15px;
+    padding: 15px;
     border-radius: 8px;
+    border-bottom: 2px solid #ddd;
+}
+
+.section h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+/* Role System (Hidden by default) */
+.staff-only, .admin-only, .dev-only {
+    display: none; 
+}
+
+/* Button Styling */
+.play-btn {
+    background: #28a745;
+    color: white;
     border: none;
-    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.btn-blue { background: var(--accent); color: white; }
-.btn-play { background: var(--green); color: black; width: auto; padding: 10px 40px; }
-.btn-red { background: var(--red); color: white; width: auto; }
+/* Back Button */
+.back-btn {
+    cursor: pointer;
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+}
 
-/* Friends & Game Grid */
-.grid { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 10px; }
-.friend { background: #333; padding: 10px; border-radius: 10px; text-align: center; min-width: 70px; }
-
-footer { text-align: center; padding: 40px; color: var(--gray); font-size: 12px; border-top: 1px solid #333; }
