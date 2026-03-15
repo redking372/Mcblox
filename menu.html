@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MCBLOX - Menu</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .menu-list { list-style: none; padding: 0; }
+        .menu-list li a {
+            display: block;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="back-btn">←</a>
+        <div class="logo">MENU</div>
+        <div></div>
+    </nav>
+
+    <div class="content">
+        <ul class="menu-list">
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="shop.html">🛒 Shop</a></li>
+            <li><a href="settings.html">⚙️ Settings</a></li>
+            <li><a href="wiki.html">📖 Wiki</a></li>
+            <li><a href="help.html">❓ Help</a></li>
+            <li><a href="about.html">ℹ️ About</a></li>
+            <li><a href="inventory.html">🎒 Inventory</a></li>
+            
+            <li class="staff-only"><a href="staff.html">🛡️ Staff Only</a></li>
+            <li class="admin-only"><a href="admin.html">🔐 Admin Only</a></li>
+            <li class="dev-only"><a href="dev.html">💻 Dev Only</a></li>
+        </ul>
+    </div>
+
+    <script>
+        // ROLE SYSTEM LOGIC
+        // Change this variable to 'user', 'staff', 'admin', or 'dev' to test
+        const userRole = 'dev'; 
+
+        if (userRole === 'staff' || userRole === 'admin' || userRole === 'dev') {
+            document.querySelectorAll('.staff-only').forEach(el => el.style.display = 'block');
+        }
+        if (userRole === 'admin' || userRole === 'dev') {
+            document.querySelectorAll('.admin-only').forEach(el => el.style.display = 'block');
+        }
+        if (userRole === 'dev') {
+            document.querySelectorAll('.dev-only').forEach(el => el.style.display = 'block');
+        }
+    </script>
+</body>
+</html>
