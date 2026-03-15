@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MCBLOX - Inbox</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .tabs { display: flex; background: #eee; }
+        .tab-btn { flex: 1; padding: 10px; border: none; cursor: pointer; }
+        .tab-btn.active { background: #ccc; font-weight: bold; }
+        .tab-content { display: none; padding: 20px; background: white; min-height: 200px; }
+        .tab-content.active { display: block; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="back-btn">←</a>
+        <div class="logo">INBOX ✉</div>
+        <div></div>
+    </nav>
+
+    <div class="content">
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab('msg')">Messages</button>
+            <button class="tab-btn" onclick="openTab('imp')">Important</button>
+            <button class="tab-btn" onclick="openTab('upd')">Updates</button>
+            <button class="tab-btn" onclick="openTab('rep')">Reports</button>
+        </div>
+
+        <div id="msg" class="tab-content active">No messages here :(</div>
+        <div id="imp" class="tab-content">No important message came yet</div>
+        <div id="upd" class="tab-content">No updates :(</div>
+        <div id="rep" class="tab-content">
+            <div style="border:1px solid red; padding: 10px; border-radius: 5px;">
+                ⚠️ You have been reported. <a href="reason.html">Click reason to know more.</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openTab(id) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
+
