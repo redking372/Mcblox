@@ -23,8 +23,32 @@ padding:10px;
 color:white;
 }
 
+.left{
+display:flex;
+gap:15px;
+align-items:center;
+}
+
+.center{
+text-align:center;
+flex:1;
+}
+
+.right{
+display:flex;
+gap:10px;
+align-items:center;
+}
+
 .logo{
-height:40px;
+height:35px;
+}
+
+.coin{
+background:#444;
+padding:5px 10px;
+border-radius:20px;
+font-size:14px;
 }
 
 .container{
@@ -48,20 +72,6 @@ border-radius:5px;
 cursor:pointer;
 }
 
-.friend{
-display:flex;
-align-items:center;
-gap:10px;
-margin-top:10px;
-}
-
-.avatar{
-width:35px;
-height:35px;
-background:#ddd;
-border-radius:50%;
-}
-
 </style>
 
 </head>
@@ -70,23 +80,25 @@ border-radius:50%;
 
 <div class="navbar">
 
-<!-- MENU BUTTON -->
+<div class="left">
 <div onclick="location.href='menu.html'">☰</div>
-
-<!-- LOGO -->
-<img src="logo.png" class="logo">
-
-<!-- INBOX -->
 <div onclick="location.href='inbox.html'">📩</div>
+</div>
+
+<div class="center">
+<img src="logo.png" class="logo">
+</div>
+
+<div class="right">
+<div class="coin">🪙 100+</div>
+<div>👤</div>
+</div>
 
 </div>
 
 <div class="container">
 
-<!-- EVENTS -->
-
 <div class="card">
-
 <h3>Events 📅</h3>
 
 <b>Summer Event 2026 ☀</b>
@@ -101,23 +113,17 @@ border-radius:50%;
 
 </div>
 
-<!-- FRIENDS -->
-
 <div class="card">
 
 <h3>Friends</h3>
 
-<button class="button" onclick="location.href='addfriend.html'">
-Add Friend +
-</button>
+<button class="button">Add Friend +</button>
 
 <p style="font-size:12px;color:#777;">
 Search username to add friends.
 </p>
 
 </div>
-
-<!-- GAMES -->
 
 <div class="card">
 
@@ -127,9 +133,7 @@ Search username to add friends.
 
 <br><br>
 
-<button class="button">
-PLAY
-</button>
+<button class="button">PLAY</button>
 
 </div>
 
