@@ -1,58 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>MCBLOX - Home</title>
-    <link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCBLOX</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#f2f2f2;
+}
+
+.navbar{
+display:flex;
+align-items:center;
+justify-content:space-between;
+background:#1e1e1e;
+padding:10px;
+color:white;
+}
+
+.logo{
+height:40px;
+}
+
+.container{
+padding:15px;
+}
+
+.card{
+background:white;
+border-radius:8px;
+padding:15px;
+margin-bottom:15px;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.button{
+background:#2ecc71;
+border:none;
+padding:10px 15px;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+
+.friend{
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:10px;
+}
+
+.avatar{
+width:35px;
+height:35px;
+background:#ddd;
+border-radius:50%;
+}
+
+</style>
+
 </head>
+
 <body>
 
-    <nav class="navbar">
-        <div class="nav-left">
-            <a href="menu.html" style="color:white; text-decoration:none; font-size:24px;">☰</a>
-            <a href="inbox.html" style="color:white; text-decoration:none; font-size:24px;">✉</a>
-        </div>
-        <div class="logo">
-            <img src="1000220237.png" alt="MCBLOX Logo">
-        </div>
-        <div class="nav-right">
-            <div class="currency-box">
-                <img src="1000220061.png" alt="Bloxcoin">
-                <span>100+</span>
-            </div>
-            <div class="profile-icon">👤</div>
-        </div>
-    </nav>
+<div class="navbar">
 
-    <div class="content">
-        <div class="section">
-            <h2>Events 🖼️</h2>
-            <div class="event-card">
-                <h3>Summer Event 2026 ☀️</h3>
-                <ul>
-                    <li>New items</li>
-                    <li>Effects</li>
-                    <li>Screens / Backgrounds</li>
-                </ul>
-                <p><small>Ends July 2026</small></p>
-            </div>
-        </div>
+<!-- MENU BUTTON -->
+<div onclick="location.href='menu.html'">☰</div>
 
-        <div class="section">
-            <h2>Friends</h2>
-            <button class="play-btn">Add Friend +</button>
-            <p><small>Search username to add friends.</small></p>
-        </div>
+<!-- LOGO -->
+<img src="logo.png" class="logo">
 
-        <div class="section">
-            <h2>Games</h2>
-            <div class="game-item">
-                <img src="path_to_steal_block_image.jpg" alt="Steal a Block" style="width:100px; display:block; margin-bottom:5px;">
-                <strong>Steal a Block</strong><br><br>
-                <button class="play-btn" onclick="location.href='game.html'">PLAY</button>
-            </div>
-        </div>
-    </div>
+<!-- INBOX -->
+<div onclick="location.href='inbox.html'">📩</div>
+
+</div>
+
+<div class="container">
+
+<!-- EVENTS -->
+
+<div class="card">
+
+<h3>Events 📅</h3>
+
+<b>Summer Event 2026 ☀</b>
+
+<ul>
+<li>New items</li>
+<li>Effects</li>
+<li>Screens / Backgrounds</li>
+</ul>
+
+<small>Ends July 2026</small>
+
+</div>
+
+<!-- FRIENDS -->
+
+<div class="card">
+
+<h3>Friends</h3>
+
+<button class="button" onclick="location.href='addfriend.html'">
+Add Friend +
+</button>
+
+<p style="font-size:12px;color:#777;">
+Search username to add friends.
+</p>
+
+</div>
+
+<!-- GAMES -->
+
+<div class="card">
+
+<h3>Games</h3>
+
+<b>Steal a Block</b>
+
+<br><br>
+
+<button class="button">
+PLAY
+</button>
+
+</div>
+
+</div>
 
 </body>
 </html>
