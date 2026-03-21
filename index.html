@@ -1,149 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MCBLOX</title>
 
 <style>
 body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #050505;
-    color: #eaeaea;
+  margin:0;
+  font-family:Arial;
+  background:#e5e5e5;
 }
 
 /* TOP BAR */
 .topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 15px;
-    background: #0a0a0a;
-    box-shadow: 0 0 10px rgba(0,255,200,0.2);
+  background:#1e1e1e;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px;
 }
 
-.left-icons span {
-    margin-right: 10px;
-    cursor: pointer;
-    font-size: 18px;
+.logo {
+  height:30px;
 }
 
-/* LOGO IMAGE */
-.logo img {
-    height: 28px;
-}
-
-/* RIGHT */
 .coin {
-    background: #111;
-    padding: 6px 12px;
-    border-radius: 20px;
-}
-
-/* CONTAINER */
-.container {
-    padding: 20px;
+  background:#2c2c2c;
+  padding:6px 12px;
+  border-radius:20px;
+  cursor:pointer;
 }
 
 /* CARDS */
+.container {
+  padding:15px;
+}
+
 .card {
-    background: #0f0f0f;
-    padding: 18px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 15px rgba(0,255,195,0.15);
-    transition: 0.3s;
+  background:white;
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:15px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 
-.card:hover {
-    transform: translateY(-5px);
-}
-
-/* BUTTON */
-button {
-    background: #00ffc3;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 8px;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 0 10px #00ffc3;
-}
-
-button:hover {
-    background: #00e6b0;
-}
-
-/* TEXT */
-h2 {
-    margin-top: 0;
-}
-
-.small {
-    color: #aaa;
-    font-size: 14px;
+.btn {
+  background:#22c55e;
+  border:none;
+  padding:10px 15px;
+  border-radius:8px;
+  color:white;
+  cursor:pointer;
 }
 </style>
 
 </head>
+
 <body>
 
-<!-- TOPBAR -->
 <div class="topbar">
-    <div class="left-icons">
-        <span onclick="openMenu()">☰</span>
-        <span onclick="openInbox()">📩</span>
-    </div>
+  <div>☰ 📩</div>
 
-    <!-- LOGO IMAGE CENTER -->
-    <div class="logo">
-        <img src="mcblox.png" alt="MCBLOX Logo">
-    </div>
+  <img src="mcblox.png" class="logo">
 
-    <div class="coin">🪙 100+</div>
+  <div class="coin" onclick="openStore()">
+    🪙 <span id="coins">0</span> [+]
+  </div>
 </div>
 
 <div class="container">
 
-    <!-- EVENTS -->
-    <div class="card">
-        <h2>📅 Events</h2>
-        <h3>Summer Event 2026 ☀️</h3>
-        <ul>
-            <li>New items</li>
-            <li>Effects</li>
-            <li>Screens / Backgrounds</li>
-        </ul>
-        <p class="small">Ends July 2026</p>
-    </div>
+  <div class="card">
+    <h3>Events 📅</h3>
+    <b>Summer Event 2026 ☀️</b>
+    <ul>
+      <li>New items</li>
+      <li>Effects</li>
+      <li>Screens / Backgrounds</li>
+    </ul>
+    <small>Ends July 2026</small>
+  </div>
 
-    <!-- FRIENDS -->
-    <div class="card">
-        <h2>👥 Friends</h2>
-        <button onclick="window.location.href='addfriend.html'">Add Friend +</button>
-        <p class="small">Search username to add friends.</p>
-    </div>
+  <div class="card">
+    <h3>Friends</h3>
+    <button class="btn" onclick="openAddFriend()">Add Friend +</button>
+    <p>Search username to add friends.</p>
+  </div>
 
-    <!-- GAMES -->
-    <div class="card">
-        <h2>🎮 Games</h2>
-        <h3>Steal a Block</h3>
-        <button>PLAY</button>
-    </div>
+  <div class="card">
+    <h3>Games</h3>
+    <b>Steal a Block</b><br><br>
+    <button class="btn">PLAY</button>
+  </div>
 
 </div>
 
 <script>
-function openMenu(){
-    window.location.href = "menu.html";
+let coins = localStorage.getItem("bloxcoin") || 0;
+document.getElementById("coins").innerText = coins;
+
+function openStore(){
+  window.location.href = "bloxcoin.html";
 }
 
-function openInbox(){
-    window.location.href = "inbox.html";
+function openAddFriend(){
+  alert("Coming soon...");
 }
 </script>
 
 </body>
-      </html>
+</html>
