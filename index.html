@@ -1,144 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MCBLOX</title>
 
-<link rel="stylesheet" href="style.css">
-
 <style>
-
-body{
-font-family:Arial;
-margin:0;
-background:#f2f2f2;
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #050505;
+    color: #eaeaea;
 }
 
-.navbar{
-display:flex;
-align-items:center;
-justify-content:space-between;
-background:#1e1e1e;
-padding:10px;
-color:white;
-position:fixed;
-top:0;
-width:100%;
-z-index:1000;
+/* TOP BAR */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background: #0a0a0a;
+    box-shadow: 0 0 10px rgba(0,255,200,0.2);
 }
 
-.container{
-padding:15px;
-margin-top:70px;
+.left-icons span {
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 18px;
 }
 
-.left{
-display:flex;
-gap:15px;
-align-items:center;
+/* LOGO IMAGE */
+.logo img {
+    height: 28px;
 }
 
-.center{
-flex:1;
-text-align:center;
+/* RIGHT */
+.coin {
+    background: #111;
+    padding: 6px 12px;
+    border-radius: 20px;
 }
 
-.right{
-display:flex;
-gap:10px;
-align-items:center;
+/* CONTAINER */
+.container {
+    padding: 20px;
 }
 
-.logo{
-height:45px;
+/* CARDS */
+.card {
+    background: #0f0f0f;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(0,255,195,0.15);
+    transition: 0.3s;
 }
 
-.coin{
-background:#444;
-padding:5px 10px;
-border-radius:20px;
-font-size:14px;
+.card:hover {
+    transform: translateY(-5px);
 }
 
-.card{
-background:white;
-border-radius:8px;
-padding:15px;
-margin-bottom:15px;
-box-shadow:0 2px 5px rgba(0,0,0,0.1);
+/* BUTTON */
+button {
+    background: #00ffc3;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00ffc3;
 }
 
-.button{
-background:#2ecc71;
-border:none;
-padding:10px 15px;
-color:white;
-border-radius:5px;
-cursor:pointer;
+button:hover {
+    background: #00e6b0;
 }
 
+/* TEXT */
+h2 {
+    margin-top: 0;
+}
+
+.small {
+    color: #aaa;
+    font-size: 14px;
+}
 </style>
 
 </head>
-
 <body>
 
-<div class="navbar">
+<!-- TOPBAR -->
+<div class="topbar">
+    <div class="left-icons">
+        <span onclick="openMenu()">☰</span>
+        <span onclick="openInbox()">📩</span>
+    </div>
 
-<div class="left">
-<div onclick="location.href='menu.html'">☰</div>
-<div onclick="location.href='inbox.html'">📩</div>
-</div>
+    <!-- LOGO IMAGE CENTER -->
+    <div class="logo">
+        <img src="mcblox.png" alt="MCBLOX Logo">
+    </div>
 
-<div class="center">
-<img src="mcblox.png" class="logo">
-</div>
-
-<div class="right">
-<div class="coin">🪙 100+</div>
-<div>👤</div>
-</div>
-
+    <div class="coin">🪙 100+</div>
 </div>
 
 <div class="container">
 
-<div class="card">
-<h3>Events 📅</h3>
+    <!-- EVENTS -->
+    <div class="card">
+        <h2>📅 Events</h2>
+        <h3>Summer Event 2026 ☀️</h3>
+        <ul>
+            <li>New items</li>
+            <li>Effects</li>
+            <li>Screens / Backgrounds</li>
+        </ul>
+        <p class="small">Ends July 2026</p>
+    </div>
 
-<b>Summer Event 2026 ☀</b>
+    <!-- FRIENDS -->
+    <div class="card">
+        <h2>👥 Friends</h2>
+        <button onclick="window.location.href='addfriend.html'">Add Friend +</button>
+        <p class="small">Search username to add friends.</p>
+    </div>
 
-<ul>
-<li>New items</li>
-<li>Effects</li>
-<li>Screens / Backgrounds</li>
-</ul>
-
-<small>Ends July 2026</small>
-</div>
-
-<div class="card">
-<h3>Friends</h3>
-
-<button class="button">Add Friend +</button>
-
-<p style="font-size:12px;color:#777;">
-Search username to add friends.
-</p>
-</div>
-
-<div class="card">
-<h3>Games</h3>
-
-<b>Steal a Block</b>
-
-<br><br>
-
-<button class="button">PLAY</button>
+    <!-- GAMES -->
+    <div class="card">
+        <h2>🎮 Games</h2>
+        <h3>Steal a Block</h3>
+        <button>PLAY</button>
+    </div>
 
 </div>
 
-</div>
+<script>
+function openMenu(){
+    window.location.href = "menu.html";
+}
+
+function openInbox(){
+    window.location.href = "inbox.html";
+}
+</script>
 
 </body>
-</html>
+      </html>
