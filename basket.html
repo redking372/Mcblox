@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Basket</title>
+
+<style>
+body {margin:0;font-family:Arial;background:#0f172a;color:white;}
+.main {padding:20px;}
+.btn {padding:10px;background:#22c55e;border:none;border-radius:10px;color:white;}
+</style>
+
+</head>
+
+<body>
+
+<div class="main">
+
+<h2>Your Basket</h2>
+
+<h3>Total Coins: <span id="coins">0</span></h3>
+<h3>Total Price: $<span id="price">0</span></h3>
+
+<img src="upi.png" width="200"><br><br>
+
+<button class="btn" onclick="pay()">I Paid</button>
+
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let totalCoins = 0;
+let totalPrice = 0;
+
+cart.forEach(item=>{
+  totalCoins += item.coins;
+  totalPrice += item.price;
+});
+
+document.getElementById("coins").innerText = totalCoins;
+document.getElementById("price").innerText = totalPrice.toFixed(2);
+
+function pay(){
+  let current = parseInt(localStorage.getItem("bloxcoin") || 0);
+  current += totalCoins;
+
+  localStorage.setItem("bloxcoin", current);
+  localStorage.removeItem("cart");
+
+  alert("Success ✅ Coins added!");
+
+  window.location.href="index.html";
+}
+</script>
+
+</body>
+</html>
