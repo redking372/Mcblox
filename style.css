@@ -23,14 +23,13 @@ body {
   position: relative;
 }
 
-/* MENU BUTTON */
+/* MENU */
 .menu-btn {
   font-size: 22px;
   color: white;
-  cursor: pointer;
 }
 
-/* CENTER LOGO */
+/* LOGO */
 .logo {
   position: absolute;
   left: 50%;
@@ -38,7 +37,7 @@ body {
 }
 
 .logo img {
-  height: 30px;
+  height: 28px;
 }
 
 /* RIGHT SIDE */
@@ -48,7 +47,15 @@ body {
   text-decoration: none;
 }
 
-/* CARDS */
+/* PAGE TITLE */
+.page-title {
+  text-align: center;
+  font-size: 22px;
+  margin: 15px 0;
+  color: #00ffcc;
+}
+
+/* CARDS (HOME) */
 .glow-card {
   background: #111;
   margin: 12px;
@@ -94,8 +101,54 @@ a:active {
   transform: scale(0.9);
 }
 
+/* COIN GRID */
+.coin-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 10px;
+}
+
+/* COIN CARD */
+.coin-card {
+  background: #111;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,255,200,0.2);
+}
+
+.coin-card p {
+  font-weight: bold;
+}
+
+.coin-card span {
+  display: block;
+  margin: 8px 0;
+}
+
+/* TOAST ANIMATION */
+#toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #00cc66;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 20px;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+#toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
 /* MOBILE */
 @media (max-width: 600px) {
+
   .logo img {
     height: 24px;
   }
@@ -104,4 +157,9 @@ a:active {
     margin: 10px;
     padding: 12px;
   }
-}
+
+  .coin-container {
+    grid-template-columns: 1fr;
+  }
+
+  }
