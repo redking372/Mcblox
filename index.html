@@ -1,112 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MCBLOX</title>
-
-<style>
-body {
-  margin:0;
-  font-family:Arial;
-  background:#e5e5e5;
-}
-
-/* TOP BAR */
-.topbar {
-  background:#1e1e1e;
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:10px;
-}
-
-.logo {
-  height:30px;
-}
-
-.coin {
-  background:#2c2c2c;
-  padding:6px 12px;
-  border-radius:20px;
-  cursor:pointer;
-}
-
-/* CARDS */
-.container {
-  padding:15px;
-}
-
-.card {
-  background:white;
-  padding:15px;
-  border-radius:12px;
-  margin-bottom:15px;
-  box-shadow:0 2px 5px rgba(0,0,0,0.1);
-}
-
-.btn {
-  background:#22c55e;
-  border:none;
-  padding:10px 15px;
-  border-radius:8px;
-  color:white;
-  cursor:pointer;
-}
-</style>
-
+  <title>MCBLOX</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="topbar">
-  <div>☰ 📩</div>
-
-  <img src="mcblox.png" class="logo">
-
-  <div class="coin" onclick="openStore()">
-    🪙 <span id="coins">0</span> [+]
+<!-- NAVBAR -->
+<div class="navbar">
+  <img src="mcblox.png">
+  
+  <div class="nav-right">
+    <a href="bloxcoin.html">🪙0+</a>
   </div>
 </div>
 
-<div class="container">
+<!-- TITLE -->
+<h1 class="glow-title">MCBLOX</h1>
 
-  <div class="card">
-    <h3>Events 📅</h3>
-    <b>Summer Event 2026 ☀️</b>
-    <ul>
-      <li>New items</li>
-      <li>Effects</li>
-      <li>Screens / Backgrounds</li>
-    </ul>
-    <small>Ends July 2026</small>
-  </div>
-
-  <div class="card">
-    <h3>Friends</h3>
-    <button class="btn" onclick="openAddFriend()">Add Friend +</button>
-    <p>Search username to add friends.</p>
-  </div>
-
-  <div class="card">
-    <h3>Games</h3>
-    <b>Steal a Block</b><br><br>
-    <button class="btn">PLAY</button>
-  </div>
-
+<!-- EVENTS -->
+<div class="glow-card">
+  <h2>📅 Events</h2>
+  <p><b>Summer Event 2026 ☀️</b></p>
+  <ul>
+    <li>New items</li>
+    <li>Effects</li>
+    <li>Screens / Backgrounds</li>
+  </ul>
 </div>
 
-<script>
-let coins = localStorage.getItem("bloxcoin") || 0;
-document.getElementById("coins").innerText = coins;
+<!-- FRIENDS -->
+<div class="glow-card">
+  <h2>👥 Friends</h2>
+  <button onclick="location.href='addfriend.html'">Add Friend +</button>
+</div>
 
-function openStore(){
-  window.location.href = "bloxcoin.html";
-}
-
-function openAddFriend(){
-  alert("Coming soon...");
-}
-</script>
+<!-- GAMES -->
+<div class="glow-card">
+  <h2>🎮 Games</h2>
+  <p>Steal a Block</p>
+  <button>PLAY</button>
+</div>
 
 </body>
 </html>
