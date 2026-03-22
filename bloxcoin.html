@@ -7,7 +7,6 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
   <div class="menu-btn" onclick="location.href='menu.html'">☰</div>
 
@@ -20,65 +19,59 @@
   </div>
 </div>
 
-<!-- TITLE -->
 <div class="page-title">BloxCoins</div>
 
-<!-- COINS GRID -->
 <div class="coin-container">
 
-  <div class="coin-card" onclick="addToBasket(100,0.98)">
+  <div class="coin-card">
     <p>100 BloxCoins</p>
     <span>$0.98</span>
-    <button>Add</button>
+    <button onclick="addToBasket(100,0.98)">Add</button>
   </div>
 
-  <div class="coin-card" onclick="addToBasket(300,2.98)">
+  <div class="coin-card">
     <p>300 BloxCoins</p>
     <span>$2.98</span>
-    <button>Add</button>
+    <button onclick="addToBasket(300,2.98)">Add</button>
   </div>
 
-  <div class="coin-card" onclick="addToBasket(500,4.98)">
+  <div class="coin-card">
     <p>500 BloxCoins</p>
     <span>$4.98</span>
-    <button>Add</button>
+    <button onclick="addToBasket(500,4.98)">Add</button>
   </div>
 
-  <div class="coin-card" onclick="addToBasket(1000,9.98)">
+  <div class="coin-card">
     <p>1000 BloxCoins</p>
     <span>$9.98</span>
-    <button>Add</button>
+    <button onclick="addToBasket(1000,9.98)">Add</button>
   </div>
 
-  <div class="coin-card" onclick="addToBasket(2000,19.98)">
+  <div class="coin-card">
     <p>2000 BloxCoins</p>
     <span>$19.98</span>
-    <button>Add</button>
+    <button onclick="addToBasket(2000,19.98)">Add</button>
   </div>
 
 </div>
 
-<!-- TOAST (ANIMATION) -->
 <div id="toast">Added to basket 🛒</div>
 
 <script>
 function addToBasket(coins, price) {
-  let currentCoins = parseInt(localStorage.getItem("coins") || 0);
-  let currentPrice = parseFloat(localStorage.getItem("price") || 0);
+  let c = parseInt(localStorage.getItem("coins") || 0);
+  let p = parseFloat(localStorage.getItem("price") || 0);
 
-  localStorage.setItem("coins", currentCoins + coins);
-  localStorage.setItem("price", (currentPrice + price).toFixed(2));
+  localStorage.setItem("coins", c + coins);
+  localStorage.setItem("price", (p + price).toFixed(2));
 
   showToast();
 }
 
 function showToast() {
-  const toast = document.getElementById("toast");
-  toast.classList.add("show");
-
-  setTimeout(() => {
-    toast.classList.remove("show");
-  }, 2000);
+  const t = document.getElementById("toast");
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2000);
 }
 </script>
 
