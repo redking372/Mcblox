@@ -1,77 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>BloxCoins</title>
-
-<style>
-body {margin:0;font-family:Arial;background:#0f172a;color:white;}
-.top {display:flex;justify-content:space-between;padding:15px;background:#1e293b;}
-.grid {display:grid;grid-template-columns:repeat(2,1fr);gap:15px;padding:15px;}
-.card {background:#1e293b;padding:15px;border-radius:15px;text-align:center;}
-.btn {margin-top:10px;padding:8px;background:#22c55e;border:none;border-radius:10px;color:white;}
-</style>
-
+  <title>BloxCoins</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="top">
-  <h3>BloxCoins</h3>
-  <button onclick="goBasket()">🧺</button>
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="menu-btn" onclick="location.href='menu.html'">☰</div>
+
+  <div class="logo">
+    <img src="mcblox.png">
+  </div>
+
+  <div class="nav-right">
+    <a href="basket.html">🛒</a>
+  </div>
 </div>
 
-<div class="grid">
+<!-- TITLE -->
+<div class="page-title">BloxCoins</div>
 
-<div class="card">
-<img src="100bloxcoin.png" width="80">
-<h4>100 Coins</h4>
-<p>$0.98</p>
-<button class="btn" onclick="add(100,0.98)">Add</button>
+<!-- COINS GRID -->
+<div class="coin-container">
+
+  <div class="coin-card" onclick="addToBasket(100,0.98)">
+    <p>100 BloxCoins</p>
+    <span>$0.98</span>
+    <button>Add</button>
+  </div>
+
+  <div class="coin-card" onclick="addToBasket(300,2.98)">
+    <p>300 BloxCoins</p>
+    <span>$2.98</span>
+    <button>Add</button>
+  </div>
+
+  <div class="coin-card" onclick="addToBasket(500,4.98)">
+    <p>500 BloxCoins</p>
+    <span>$4.98</span>
+    <button>Add</button>
+  </div>
+
+  <div class="coin-card" onclick="addToBasket(1000,9.98)">
+    <p>1000 BloxCoins</p>
+    <span>$9.98</span>
+    <button>Add</button>
+  </div>
+
+  <div class="coin-card" onclick="addToBasket(2000,19.98)">
+    <p>2000 BloxCoins</p>
+    <span>$19.98</span>
+    <button>Add</button>
+  </div>
+
 </div>
 
-<div class="card">
-<img src="300bloxcoin.png" width="80">
-<h4>300 Coins</h4>
-<p>$2.98</p>
-<button class="btn" onclick="add(300,2.98)">Add</button>
-</div>
-
-<div class="card">
-<img src="500bloxcoin.png" width="80">
-<h4>500 Coins</h4>
-<p>$4.98</p>
-<button class="btn" onclick="add(500,4.98)">Add</button>
-</div>
-
-<div class="card">
-<img src="1000bloxcoin.png" width="80">
-<h4>1000 Coins</h4>
-<p>$9.98</p>
-<button class="btn" onclick="add(1000,9.98)">Add</button>
-</div>
-
-<div class="card">
-<img src="2000bloxcoin.png" width="80">
-<h4>2000 Coins</h4>
-<p>$19.98</p>
-<button class="btn" onclick="add(2000,19.98)">Add</button>
-</div>
-
-</div>
+<!-- TOAST (ANIMATION) -->
+<div id="toast">Added to basket 🛒</div>
 
 <script>
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+function addToBasket(coins, price) {
+  let currentCoins = parseInt(localStorage.getItem("coins") || 0);
+  let currentPrice = parseFloat(localStorage.getItem("price") || 0);
 
-function add(c,p){
-  cart.push({coins:c,price:p});
-  localStorage.setItem("cart", JSON.stringify(cart));
-  alert("Added to basket 🧺");
+  localStorage.setItem("coins", currentCoins + coins);
+  localStorage.setItem("price", (currentPrice + price).toFixed(2));
+
+  showToast();
 }
 
-function goBasket(){
-  window.location.href="basket.html";
+function showToast() {
+  const toast = document.getElementById("toast");
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2000);
 }
 </script>
 
 </body>
-  </html>
+</html>
