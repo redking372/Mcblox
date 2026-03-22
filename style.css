@@ -16,90 +16,18 @@ body {
 /* NAVBAR */
 .navbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 15px;
-  background: #0f0f0f;
-  border-bottom: 1px solid #1f1f1f;
-}
-
-.navbar img {
-  height: 28px;
-}
-
-.nav-right a {
-  color: #00ffcc;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-/* TITLE (GLOW LIKE TERMS PAGE) */
-.glow-title {
-  text-align: center;
-  font-size: 28px;
-  color: #00ffcc;
-  text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
-  margin: 20px 0;
-}
-
-/* GLOW CARDS */
-.glow-card {
-  background: #111;
-  margin: 15px;
-  padding: 15px;
-  border-radius: 12px;
-  border-left: 4px solid #00ffcc;
-  box-shadow: 0 0 15px rgba(0,255,200,0.25);
-}
-
-/* TEXT */
-h2 {
-  margin-bottom: 10px;
-}
-
-ul {
-  margin-left: 20px;
-  margin-top: 10px;
-}
-
-/* BUTTON */
-button {
-  background: #00cc66;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 8px;
-  color: white;
-  font-weight: bold;
-  margin-top: 10px;
-  transition: 0.2s;
-}
-
-button:active {
-  transform: scale(0.95);
-}
-
-/* LINKS */
-a {
-  transition: 0.2s;
-}
-
-a:active {
-  transform: scale(0.9);
-}
-/* NAVBAR FIXED LAYOUT */
-.navbar {
-  display: flex;
   align-items: center;
   justify-content: space-between;
   background: #0f0f0f;
   padding: 10px 15px;
+  position: relative;
 }
 
 /* MENU BUTTON */
 .menu-btn {
   font-size: 22px;
   color: white;
+  cursor: pointer;
 }
 
 /* CENTER LOGO */
@@ -118,4 +46,62 @@ a:active {
   color: #00ffcc;
   font-weight: bold;
   text-decoration: none;
-                            }
+}
+
+/* CARDS */
+.glow-card {
+  background: #111;
+  margin: 12px;
+  padding: 14px;
+  border-radius: 12px;
+  border-left: 4px solid #00ffcc;
+  box-shadow: 0 0 12px rgba(0,255,200,0.25);
+}
+
+/* TEXT */
+h2 {
+  margin-bottom: 8px;
+}
+
+ul {
+  margin-left: 18px;
+  margin-top: 8px;
+}
+
+/* BUTTON */
+button {
+  background: #00cc66;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  margin-top: 10px;
+  width: 100%;
+  transition: 0.2s;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* LINKS */
+a {
+  transition: 0.2s;
+}
+
+a:active {
+  transform: scale(0.9);
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .logo img {
+    height: 24px;
+  }
+
+  .glow-card {
+    margin: 10px;
+    padding: 12px;
+  }
+}
