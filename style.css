@@ -87,3 +87,35 @@ a {
 a:active {
   transform: scale(0.9);
 }
+/* NAVBAR FIXED LAYOUT */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0f0f0f;
+  padding: 10px 15px;
+}
+
+/* MENU BUTTON */
+.menu-btn {
+  font-size: 22px;
+  color: white;
+}
+
+/* CENTER LOGO */
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo img {
+  height: 30px;
+}
+
+/* RIGHT SIDE */
+.nav-right a {
+  color: #00ffcc;
+  font-weight: bold;
+  text-decoration: none;
+                            }
