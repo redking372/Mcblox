@@ -1,92 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Shop - MCBLOX</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BloxCoins - MCBLOX</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar">
-  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  <header class="topbar">
+    <button class="icon-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
 
-  <div class="logo">
-    <img src="mcblox.png">
+    <a class="brand" href="index.html" aria-label="MCBLOX Home">
+      <img src="mcblox.png" alt="MCBLOX">
+    </a>
+
+    <a class="icon-btn" href="basket.html" aria-label="Basket">🛒</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <p class="hero-kicker">TOP UP</p>
+      <h1>BloxCoins</h1>
+      <p class="hero-sub">Pick a pack and add it to your basket.</p>
+    </div>
+  </section>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <a class="side-item active" href="bloxcoin.html">BloxCoins</a>
+      <a class="side-item" href="#">Top-Up</a>
+      <a class="side-item" href="#">Special Offers</a>
+      <a class="side-item" href="#">Membership</a>
+    </aside>
+
+    <main class="content">
+      <div class="cards-grid">
+
+        <article class="pack-card">
+          <div class="pack-image-wrap">
+            <img src="100bloxcoin.png" alt="100 BloxCoins">
+          </div>
+          <div class="pack-info">
+            <h2>100 BloxCoins</h2>
+            <p class="price">$0.98</p>
+            <button onclick="buy(this, 100, 0.98)">Add</button>
+          </div>
+        </article>
+
+        <article class="pack-card">
+          <div class="pack-image-wrap">
+            <img src="300bloxcoin.png" alt="300 BloxCoins">
+          </div>
+          <div class="pack-info">
+            <h2>300 BloxCoins</h2>
+            <p class="price">$2.98</p>
+            <button onclick="buy(this, 300, 2.98)">Add</button>
+          </div>
+        </article>
+
+        <article class="pack-card">
+          <div class="pack-image-wrap">
+            <img src="500bloxcoin.png" alt="500 BloxCoins">
+          </div>
+          <div class="pack-info">
+            <h2>500 BloxCoins</h2>
+            <p class="price">$4.98</p>
+            <button onclick="buy(this, 500, 4.98)">Add</button>
+          </div>
+        </article>
+
+        <article class="pack-card">
+          <div class="pack-image-wrap">
+            <img src="1000bloxcoin.png" alt="1000 BloxCoins">
+          </div>
+          <div class="pack-info">
+            <h2>1000 BloxCoins</h2>
+            <p class="price">$9.98</p>
+            <button onclick="buy(this, 1000, 9.98)">Add</button>
+          </div>
+        </article>
+
+        <article class="pack-card pack-card-wide">
+          <div class="pack-image-wrap">
+            <img src="2000bloxcoin.png" alt="2000 BloxCoins">
+          </div>
+          <div class="pack-info">
+            <h2>2000 BloxCoins</h2>
+            <p class="price">$19.98</p>
+            <button onclick="buy(this, 2000, 19.98)">Add</button>
+          </div>
+        </article>
+
+      </div>
+    </main>
   </div>
 
-  <div class="nav-right">
-    <a href="basket.html">🛒</a>
-  </div>
-</div>
+  <div id="toast">Added to basket 🛒</div>
 
-<!-- MAIN LAYOUT -->
-<div class="main">
+  <script>
+    function buy(btn, coins, price) {
+      const currentCoins = parseInt(localStorage.getItem("coins") || "0", 10);
+      const currentPrice = parseFloat(localStorage.getItem("price") || "0");
 
-  <!-- SIDE MENU -->
-  <div class="side-menu" id="sideMenu">
-    <div class="menu-item active">BloxCoins</div>
-    <div class="menu-item">Top-Up</div>
-    <div class="menu-item">Special Offers</div>
-    <div class="menu-item">Membership</div>
-  </div>
+      localStorage.setItem("coins", String(currentCoins + coins));
+      localStorage.setItem("price", (currentPrice + price).toFixed(2));
 
-  <!-- SHOP -->
-  <div class="shop-area">
+      const card = btn.closest(".pack-card");
+      card.classList.add("clicked");
+      setTimeout(() => card.classList.remove("clicked"), 180);
 
-    <div class="shop-card">
-      <img src="100bloxcoin.png">
-      <button onclick="buy(this,100,0.98)">Add</button>
-    </div>
+      const toast = document.getElementById("toast");
+      toast.classList.remove("show");
+      void toast.offsetWidth;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 1200);
+    }
 
-    <div class="shop-card">
-      <img src="300bloxcoin.png">
-      <button onclick="buy(this,300,2.98)">Add</button>
-    </div>
-
-    <div class="shop-card">
-      <img src="500bloxcoin.png">
-      <button onclick="buy(this,500,4.98)">Add</button>
-    </div>
-
-    <div class="shop-card">
-      <img src="1000bloxcoin.png">
-      <button onclick="buy(this,1000,9.98)">Add</button>
-    </div>
-
-    <div class="shop-card">
-      <img src="2000bloxcoin.png">
-      <button onclick="buy(this,2000,19.98)">Add</button>
-    </div>
-
-  </div>
-
-</div>
-
-<!-- FLOAT TEXT -->
-<div id="floatText">+ Added 🪙</div>
-
-<script>
-function buy(btn, coins, price) {
-  let c = parseInt(localStorage.getItem("coins") || 0);
-  let p = parseFloat(localStorage.getItem("price") || 0);
-
-  localStorage.setItem("coins", c + coins);
-  localStorage.setItem("price", (p + price).toFixed(2));
-
-  const card = btn.parentElement;
-  card.classList.add("clicked");
-  setTimeout(() => card.classList.remove("clicked"), 200);
-
-  const f = document.getElementById("floatText");
-  f.classList.add("show");
-  setTimeout(() => f.classList.remove("show"), 1200);
-}
-
-function toggleMenu() {
-  document.getElementById("sideMenu").classList.toggle("open");
-}
-</script>
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
+  </script>
 
 </body>
-</html>
+              </html>
