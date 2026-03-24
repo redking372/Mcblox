@@ -3,8 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
-  -webkit-tap-highlight-color: transparent;
+  font-family: Arial;
 }
 
 /* BODY */
@@ -25,10 +24,9 @@ body {
 
 .menu-btn {
   font-size: 22px;
-  color: white;
+  cursor: pointer;
 }
 
-/* LOGO CENTER */
 .logo {
   position: absolute;
   left: 50%;
@@ -39,69 +37,83 @@ body {
   height: 28px;
 }
 
-/* RIGHT */
 .nav-right a {
   color: #00ffcc;
   text-decoration: none;
-  font-size: 18px;
 }
 
-/* TITLE */
-.page-title {
-  text-align: center;
-  font-size: 22px;
-  margin: 15px 0;
-  color: #00ffcc;
+/* MAIN LAYOUT */
+.main {
+  display: flex;
 }
 
-/* SHOP GRID */
-.shop-container {
+/* SIDE MENU */
+.side-menu {
+  width: 160px;
+  background: #111;
+  padding: 10px;
+  min-height: 100vh;
+}
+
+.menu-item {
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  background: #1a1a1a;
+}
+
+.menu-item.active {
+  background: #00cc66;
+}
+
+/* SHOP AREA */
+.shop-area {
+  flex: 1;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+  gap: 12px;
   padding: 12px;
 }
 
 /* CARD */
 .shop-card {
   background: #111;
-  border-radius: 14px;
+  border-radius: 12px;
   padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 160px;
+  text-align: center;
   transition: 0.2s;
 }
 
-/* IMAGE */
 .shop-card img {
-  max-width: 100%;
-  max-height: 140px;
+  width: 100%;
+  height: 100px;
   object-fit: contain;
-  transition: 0.3s;
 }
 
-/* CLICK ANIMATION */
+/* BUTTON */
+.shop-card button {
+  margin-top: 8px;
+  background: #00cc66;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+}
+
+/* CLICK EFFECT */
 .shop-card.clicked {
-  transform: scale(0.92);
-}
-
-/* GLOW EFFECT */
-.shop-card:active img {
-  filter: drop-shadow(0 0 10px gold);
+  transform: scale(0.9);
 }
 
 /* FLOAT TEXT */
 #floatText {
   position: fixed;
-  bottom: 50px;
+  bottom: 40px;
   left: 50%;
-  transform: translateX(-50%) translateY(50px);
-  color: #00ffcc;
-  font-weight: bold;
+  transform: translateX(-50%) translateY(40px);
   opacity: 0;
-  transition: 0.5s;
+  transition: 0.4s;
 }
 
 #floatText.show {
@@ -110,16 +122,26 @@ body {
 }
 
 /* MOBILE */
-@media (max-width: 600px) {
-  .shop-container {
+@media (max-width: 700px) {
+
+  .main {
+    flex-direction: column;
+  }
+
+  .side-menu {
+    position: fixed;
+    left: -200px;
+    top: 0;
+    height: 100%;
+    transition: 0.3s;
+  }
+
+  .side-menu.open {
+    left: 0;
+  }
+
+  .shop-area {
     grid-template-columns: 1fr;
   }
 
-  .shop-card {
-    height: 140px;
   }
-
-  .logo img {
-    height: 24px;
-  }
-}
