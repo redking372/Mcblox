@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BloxCoins</title>
+  <title>BloxCoins - MCBLOX</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="navbar">
-  <div class="menu-btn" onclick="location.href='menu.html'">☰</div>
+  <div class="menu-btn">☰</div>
 
   <div class="logo">
     <img src="mcblox.png">
@@ -21,57 +21,49 @@
 
 <div class="page-title">BloxCoins</div>
 
-<div class="coin-container">
+<div class="shop-container">
 
-  <div class="coin-card">
-    <p>100 BloxCoins</p>
-    <span>$0.98</span>
-    <button onclick="addToBasket(100,0.98)">Add</button>
+  <div class="shop-card" onclick="buy(this,100,0.98)">
+    <img src="images/100bloxcoin.png">
   </div>
 
-  <div class="coin-card">
-    <p>300 BloxCoins</p>
-    <span>$2.98</span>
-    <button onclick="addToBasket(300,2.98)">Add</button>
+  <div class="shop-card" onclick="buy(this,300,2.98)">
+    <img src="images/300bloxcoin.png">
   </div>
 
-  <div class="coin-card">
-    <p>500 BloxCoins</p>
-    <span>$4.98</span>
-    <button onclick="addToBasket(500,4.98)">Add</button>
+  <div class="shop-card" onclick="buy(this,500,4.98)">
+    <img src="images/500bloxcoin.png">
   </div>
 
-  <div class="coin-card">
-    <p>1000 BloxCoins</p>
-    <span>$9.98</span>
-    <button onclick="addToBasket(1000,9.98)">Add</button>
+  <div class="shop-card" onclick="buy(this,1000,9.98)">
+    <img src="images/1000bloxcoin.png">
   </div>
 
-  <div class="coin-card">
-    <p>2000 BloxCoins</p>
-    <span>$19.98</span>
-    <button onclick="addToBasket(2000,19.98)">Add</button>
+  <div class="shop-card" onclick="buy(this,2000,19.98)">
+    <img src="images/2000bloxcoin.png">
   </div>
 
 </div>
 
-<div id="toast">Added to basket 🛒</div>
+<!-- COOL FLOAT TEXT -->
+<div id="floatText">+ Added 🪙</div>
 
 <script>
-function addToBasket(coins, price) {
+function buy(el, coins, price) {
   let c = parseInt(localStorage.getItem("coins") || 0);
   let p = parseFloat(localStorage.getItem("price") || 0);
 
   localStorage.setItem("coins", c + coins);
   localStorage.setItem("price", (p + price).toFixed(2));
 
-  showToast();
-}
+  // CLICK ANIMATION
+  el.classList.add("clicked");
+  setTimeout(() => el.classList.remove("clicked"), 200);
 
-function showToast() {
-  const t = document.getElementById("toast");
-  t.classList.add("show");
-  setTimeout(() => t.classList.remove("show"), 2000);
+  // FLOAT TEXT
+  const f = document.getElementById("floatText");
+  f.classList.add("show");
+  setTimeout(() => f.classList.remove("show"), 1200);
 }
 </script>
 
