@@ -15,15 +15,13 @@
       <img src="mcblox.png" alt="MCBLOX">
     </a>
 
-    <a class="icon-btn" href="basket.html" aria-label="Basket">🛒</a>
+    <a class="cart-btn" href="basket.html" aria-label="Basket">🛒</a>
   </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <p class="hero-kicker">TOP UP</p>
-      <h1>BloxCoins</h1>
-      <p class="hero-sub">Pick a pack and add it to your basket.</p>
-    </div>
+  <section class="page-head">
+    <p class="kicker">TOP UP</p>
+    <h1>BloxCoins</h1>
+    <p class="sub">Pick a pack and add it to your basket.</p>
   </section>
 
   <div class="layout">
@@ -107,8 +105,10 @@
       localStorage.setItem("price", (currentPrice + price).toFixed(2));
 
       const card = btn.closest(".pack-card");
-      card.classList.add("clicked");
-      setTimeout(() => card.classList.remove("clicked"), 180);
+      if (card) {
+        card.classList.add("clicked");
+        setTimeout(() => card.classList.remove("clicked"), 180);
+      }
 
       const toast = document.getElementById("toast");
       toast.classList.remove("show");
@@ -123,4 +123,4 @@
   </script>
 
 </body>
-              </html>
+  </html>
