@@ -3,8 +3,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
   font-family: Arial, sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* BODY */
@@ -16,20 +16,19 @@ body {
 /* NAVBAR */
 .navbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   background: #0f0f0f;
   padding: 10px 15px;
   position: relative;
 }
 
-/* MENU */
 .menu-btn {
   font-size: 22px;
   color: white;
 }
 
-/* LOGO */
+/* LOGO CENTER */
 .logo {
   position: absolute;
   left: 50%;
@@ -43,8 +42,8 @@ body {
 /* RIGHT */
 .nav-right a {
   color: #00ffcc;
-  font-weight: bold;
   text-decoration: none;
+  font-size: 18px;
 }
 
 /* TITLE */
@@ -55,86 +54,72 @@ body {
   color: #00ffcc;
 }
 
-/* HOME CARDS */
-.glow-card {
-  background: #111;
-  margin: 12px;
-  padding: 14px;
-  border-radius: 12px;
-  border-left: 4px solid #00ffcc;
-  box-shadow: 0 0 12px rgba(0,255,200,0.25);
-}
-
-/* COIN GRID */
-.coin-container {
+/* SHOP GRID */
+.shop-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  padding: 10px;
+  gap: 14px;
+  padding: 12px;
 }
 
-/* COIN CARD */
-.coin-card {
+/* CARD */
+.shop-card {
   background: #111;
-  padding: 15px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 0 10px rgba(0,255,200,0.2);
+  border-radius: 14px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 160px;
+  transition: 0.2s;
 }
 
-/* TEXT */
-.coin-card p {
-  font-weight: bold;
+/* IMAGE */
+.shop-card img {
+  max-width: 100%;
+  max-height: 140px;
+  object-fit: contain;
+  transition: 0.3s;
 }
 
-.coin-card span {
-  display: block;
-  margin: 8px 0;
+/* CLICK ANIMATION */
+.shop-card.clicked {
+  transform: scale(0.92);
 }
 
-/* BUTTON (FIXED - NOT FULL WIDTH) */
-button {
-  background: #00cc66;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 8px;
-  color: white;
-  font-weight: bold;
-  margin-top: 10px;
-  display: inline-block;
+/* GLOW EFFECT */
+.shop-card:active img {
+  filter: drop-shadow(0 0 10px gold);
 }
 
-/* CLICK EFFECT */
-button:active {
-  transform: scale(0.95);
-}
-
-/* TOAST */
-#toast {
+/* FLOAT TEXT */
+#floatText {
   position: fixed;
-  bottom: 20px;
+  bottom: 50px;
   left: 50%;
-  transform: translateX(-50%) translateY(100px);
-  background: #00cc66;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 20px;
+  transform: translateX(-50%) translateY(50px);
+  color: #00ffcc;
+  font-weight: bold;
   opacity: 0;
-  transition: 0.4s;
+  transition: 0.5s;
 }
 
-#toast.show {
-  transform: translateX(-50%) translateY(0);
+#floatText.show {
   opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* MOBILE */
 @media (max-width: 600px) {
-  .logo img {
-    height: 24px;
+  .shop-container {
+    grid-template-columns: 1fr;
   }
 
-  .coin-container {
-    grid-template-columns: 1fr;
+  .shop-card {
+    height: 140px;
+  }
+
+  .logo img {
+    height: 24px;
   }
 }
