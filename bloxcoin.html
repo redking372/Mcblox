@@ -7,6 +7,7 @@
 </head>
 <body>
 
+<!-- NAVBAR -->
 <div class="navbar">
   <div class="menu-btn">☰</div>
 
@@ -19,33 +20,35 @@
   </div>
 </div>
 
+<!-- TITLE -->
 <div class="page-title">BloxCoins</div>
 
+<!-- SHOP -->
 <div class="shop-container">
 
   <div class="shop-card" onclick="buy(this,100,0.98)">
-    <img src="images/100bloxcoin.png">
+    <img src="100bloxcoin.png">
   </div>
 
   <div class="shop-card" onclick="buy(this,300,2.98)">
-    <img src="images/300bloxcoin.png">
+    <img src="300bloxcoin.png">
   </div>
 
   <div class="shop-card" onclick="buy(this,500,4.98)">
-    <img src="images/500bloxcoin.png">
+    <img src="500bloxcoin.png">
   </div>
 
   <div class="shop-card" onclick="buy(this,1000,9.98)">
-    <img src="images/1000bloxcoin.png">
+    <img src="1000bloxcoin.png">
   </div>
 
   <div class="shop-card" onclick="buy(this,2000,19.98)">
-    <img src="images/2000bloxcoin.png">
+    <img src="2000bloxcoin.png">
   </div>
 
 </div>
 
-<!-- COOL FLOAT TEXT -->
+<!-- FLOAT TEXT -->
 <div id="floatText">+ Added 🪙</div>
 
 <script>
@@ -56,11 +59,9 @@ function buy(el, coins, price) {
   localStorage.setItem("coins", c + coins);
   localStorage.setItem("price", (p + price).toFixed(2));
 
-  // CLICK ANIMATION
   el.classList.add("clicked");
   setTimeout(() => el.classList.remove("clicked"), 200);
 
-  // FLOAT TEXT
   const f = document.getElementById("floatText");
   f.classList.add("show");
   setTimeout(() => f.classList.remove("show"), 1200);
