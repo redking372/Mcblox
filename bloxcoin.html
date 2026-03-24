@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BloxCoins - MCBLOX</title>
+  <title>Shop - MCBLOX</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -9,7 +9,7 @@
 
 <!-- NAVBAR -->
 <div class="navbar">
-  <div class="menu-btn">☰</div>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
   <div class="logo">
     <img src="mcblox.png">
@@ -20,30 +20,45 @@
   </div>
 </div>
 
-<!-- TITLE -->
-<div class="page-title">BloxCoins</div>
+<!-- MAIN LAYOUT -->
+<div class="main">
 
-<!-- SHOP -->
-<div class="shop-container">
-
-  <div class="shop-card" onclick="buy(this,100,0.98)">
-    <img src="100bloxcoin.png">
+  <!-- SIDE MENU -->
+  <div class="side-menu" id="sideMenu">
+    <div class="menu-item active">BloxCoins</div>
+    <div class="menu-item">Top-Up</div>
+    <div class="menu-item">Special Offers</div>
+    <div class="menu-item">Membership</div>
   </div>
 
-  <div class="shop-card" onclick="buy(this,300,2.98)">
-    <img src="300bloxcoin.png">
-  </div>
+  <!-- SHOP -->
+  <div class="shop-area">
 
-  <div class="shop-card" onclick="buy(this,500,4.98)">
-    <img src="500bloxcoin.png">
-  </div>
+    <div class="shop-card">
+      <img src="100bloxcoin.png">
+      <button onclick="buy(this,100,0.98)">Add</button>
+    </div>
 
-  <div class="shop-card" onclick="buy(this,1000,9.98)">
-    <img src="1000bloxcoin.png">
-  </div>
+    <div class="shop-card">
+      <img src="300bloxcoin.png">
+      <button onclick="buy(this,300,2.98)">Add</button>
+    </div>
 
-  <div class="shop-card" onclick="buy(this,2000,19.98)">
-    <img src="2000bloxcoin.png">
+    <div class="shop-card">
+      <img src="500bloxcoin.png">
+      <button onclick="buy(this,500,4.98)">Add</button>
+    </div>
+
+    <div class="shop-card">
+      <img src="1000bloxcoin.png">
+      <button onclick="buy(this,1000,9.98)">Add</button>
+    </div>
+
+    <div class="shop-card">
+      <img src="2000bloxcoin.png">
+      <button onclick="buy(this,2000,19.98)">Add</button>
+    </div>
+
   </div>
 
 </div>
@@ -52,19 +67,24 @@
 <div id="floatText">+ Added 🪙</div>
 
 <script>
-function buy(el, coins, price) {
+function buy(btn, coins, price) {
   let c = parseInt(localStorage.getItem("coins") || 0);
   let p = parseFloat(localStorage.getItem("price") || 0);
 
   localStorage.setItem("coins", c + coins);
   localStorage.setItem("price", (p + price).toFixed(2));
 
-  el.classList.add("clicked");
-  setTimeout(() => el.classList.remove("clicked"), 200);
+  const card = btn.parentElement;
+  card.classList.add("clicked");
+  setTimeout(() => card.classList.remove("clicked"), 200);
 
   const f = document.getElementById("floatText");
   f.classList.add("show");
   setTimeout(() => f.classList.remove("show"), 1200);
+}
+
+function toggleMenu() {
+  document.getElementById("sideMenu").classList.toggle("open");
 }
 </script>
 
