@@ -1,53 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MCBLOX</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+<title>MCBLOX</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
 
-  <!-- LEFT MENU -->
-  <div class="menu-btn" onclick="location.href='menu.html'">☰</div>
+<div class="menu-btn" onclick="location.href='menu.html'">☰</div>
 
-  <!-- CENTER LOGO -->
-  <div class="logo">
-    <img src="mcblox.png">
-  </div>
+<div class="logo">
+<img src="mcblox.png">
+</div>
 
-  <!-- RIGHT COIN -->
-  <div class="nav-right">
-    <a href="bloxcoin.html">🪙0+</a>
-  </div>
+<div class="nav-right">
+<a href="bloxcoin.html">🪙<span id="coinDisplay">0</span></a>
+</div>
 
 </div>
 
-<!-- EVENTS -->
 <div class="glow-card">
-  <h2>📅 Events</h2>
-  <p><b>Summer Event 2026 ☀️</b></p>
-  <ul>
-    <li>New items</li>
-    <li>Effects</li>
-    <li>Screens / Backgrounds</li>
-  </ul>
+<h2>📅 Events</h2>
+<p><b>Summer Event 2026 ☀️</b></p>
+<ul>
+<li>New items</li>
+<li>Effects</li>
+<li>Screens</li>
+</ul>
 </div>
 
-<!-- FRIENDS -->
 <div class="glow-card">
-  <h2>👥 Friends</h2>
-  <button onclick="location.href='addfriend.html'">Add Friend +</button>
+<h2>👥 Friends</h2>
+<button onclick="location.href='addfriend.html'">Add Friend +</button>
 </div>
 
-<!-- GAMES -->
 <div class="glow-card">
-  <h2>🎮 Games</h2>
-  <p>Steal a Block</p>
-  <button>PLAY</button>
+<h2>🎮 Games</h2>
+<p>Steal a Block</p>
+<button>PLAY</button>
 </div>
+
+<script type="module">
+import { auth, db } from "./firebase-config.js";
+import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+
+auth.onAuthStateChanged(async (user)=>{
+  if(user){
+    const ref = doc(db,"users",user.uid);
+    const snap = await getDoc(ref);
+
+    if(snap.exists()){
+      document.getElementById("coinDisplay").innerText = snap.data().coins || 0;
+    }
+  }
+});
+</script>
 
 </body>
 </html>
