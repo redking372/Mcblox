@@ -1,56 +1,80 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Basket</title>
-
-<style>
-body {margin:0;font-family:Arial;background:#0f172a;color:white;}
-.main {padding:20px;}
-.btn {padding:10px;background:#22c55e;border:none;border-radius:10px;color:white;}
-</style>
-
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="main">
+<div class="content">
 
 <h2>Your Basket</h2>
+
+<div id="items"></div>
 
 <h3>Total Coins: <span id="coins">0</span></h3>
 <h3>Total Price: $<span id="price">0</span></h3>
 
 <img src="upi.png" width="200"><br><br>
 
-<button class="btn" onclick="pay()">I Paid</button>
+<button onclick="pay()">I Paid</button>
 
 </div>
 
-<script>
+<script type="module">
+import { auth, db } from "./firebase-config.js";
+import { doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 let totalCoins = 0;
 let totalPrice = 0;
 
+let itemsDiv = document.getElementById("items");
+
 cart.forEach(item=>{
   totalCoins += item.coins;
   totalPrice += item.price;
+
+  itemsDiv.innerHTML += `<p>${item.coins} Coins - $${item.price}</p>`;
 });
 
 document.getElementById("coins").innerText = totalCoins;
 document.getElementById("price").innerText = totalPrice.toFixed(2);
 
-function pay(){
-  let current = parseInt(localStorage.getItem("bloxcoin") || 0);
-  current += totalCoins;
+async function pay(){
 
-  localStorage.setItem("bloxcoin", current);
-  localStorage.removeItem("cart");
+const user = auth.currentUser;
 
-  alert("Success ✅ Coins added!");
-
-  window.location.href="index.html";
+if(!user){
+  alert("Login first!");
+  window.location.href="login.html";
+  return;
 }
+
+const ref = doc(db, "users", user.uid);
+const snap = await getDoc(ref);
+
+let currentCoins = 0;
+
+if(snap.exists()){
+  currentCoins = snap.data().coins || 0;
+}
+
+await updateDoc(ref, {
+  coins: currentCoins + totalCoins
+});
+
+localStorage.removeItem("cart");
+
+alert("✅ Coins added!");
+
+window.location.href="index.html";
+}
+
+window.pay = pay;
 </script>
 
 </body>
