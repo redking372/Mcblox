@@ -64,6 +64,12 @@ li {
   line-height: 1.6;
   color: #dbe3ef;
 }
+/* heading alignment */
+h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
 footer {
   text-align: center;
