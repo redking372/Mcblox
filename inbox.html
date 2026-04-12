@@ -1,59 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inbox</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inbox</title>
 
-<style>
-body{
-font-family:Arial;
-margin:0;
-background:#f3f3f3;
-}
-
-.navbar{
-background:#1f1f1f;
-color:white;
-padding:10px;
-}
-
-.tabs{
-display:flex;
-background:#ddd;
-}
-
-.tab{
-flex:1;
-padding:10px;
-text-align:center;
-cursor:pointer;
-}
-
-.content{
-padding:15px;
-background:white;
-margin:10px;
-border-radius:5px;
-}
-</style>
+  <!-- CSS CONNECT -->
+  <link rel="stylesheet" href="inbox.css">
 </head>
 
 <body>
 
-<div class="navbar">
-← <a href="index.html" style="color:white;text-decoration:none;">Back</a>
-</div>
+  <div>
+    <a href="index.html">← Back</a>
+  </div>
 
-<div class="tabs">
-<div class="tab">Messages</div>
-<div class="tab">Important</div>
-<div class="tab">Updates</div>
-<div class="tab">Reports</div>
-</div>
+  <h2>Inbox</h2>
 
-<div class="content">
-No messages here :(
-</div>
+  <hr>
+
+  <div>
+    <button>Messages</button>
+    <button>Important</button>
+    <button>Updates</button>
+    <button>Reports</button>
+  </div>
+
+  <hr>
+
+  <div>
+    <p>No messages here :(</p>
+  </div>
 
 </body>
 </html>
