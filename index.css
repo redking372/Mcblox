@@ -1,1 +1,145 @@
-name test
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --bg: #07111f;
+  --panel: rgba(16, 26, 45, 0.92);
+  --card: rgba(17, 28, 49, 0.96);
+  --line: rgba(255, 255, 255, 0.09);
+  --text: #f4f7fb;
+  --muted: #a6afbd;
+  --mint: #31e7a4;
+  --mint-dark: #16bf7a;
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+}
+
+body {
+  min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, rgba(48, 77, 127, 0.28), transparent 40%),
+    linear-gradient(180deg, #050a13 0%, #07111f 55%, #05070c 100%);
+}
+
+.navbar {
+  height: 64px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(9, 14, 24, 0.92);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+}
+
+.menu-btn,
+.nav-right a {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  height: 22px;
+  width: auto;
+  display: block;
+}
+
+.nav-right a {
+  min-width: 62px;
+  width: auto;
+  padding: 0 12px;
+  gap: 6px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+  position: relative;
+}
+
+.nav-right span {
+  color: #fff;
+  font-weight: 900;
+}
+
+.glow-card {
+  margin: 14px;
+  padding: 18px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(27, 40, 68, 0.98), rgba(12, 18, 31, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow);
+}
+
+.glow-card h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.glow-card p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.glow-card ul {
+  margin-top: 10px;
+  padding-left: 18px;
+  color: #d8e1ef;
+}
+
+.glow-card li {
+  margin: 8px 0;
+}
+
+.glow-card button {
+  margin-top: 12px;
+  width: 100%;
+  border: 0;
+  border-radius: 16px;
+  padding: 13px 16px;
+  background: linear-gradient(180deg, #55f2af, #18c27d);
+  color: #072012;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform 0.12s ease, filter 0.2s ease;
+}
+
+.glow-card button:active {
+  transform: scale(0.99);
+  filter: brightness(0.96);
+}
+
+@media (min-width: 900px) {
+  body {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .glow-card {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+}
