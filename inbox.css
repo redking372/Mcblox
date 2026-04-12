@@ -1,1 +1,69 @@
-i
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --bg: #07111f;
+  --panel: rgba(16, 26, 45, 0.92);
+  --card: rgba(17, 28, 49, 0.96);
+  --line: rgba(255, 255, 255, 0.09);
+  --text: #f4f7fb;
+  --muted: #a6afbd;
+  --accent: #31e7a4;
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+}
+
+body {
+  min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, rgba(48, 77, 127, 0.28), transparent 40%),
+    linear-gradient(180deg, #050a13 0%, #07111f 55%, #05070c 100%);
+}
+
+.navbar {
+  background: rgba(5, 10, 19, 0.94);
+  color: white;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 14px;
+}
+
+.tab {
+  padding: 13px 8px;
+  text-align: center;
+  border-radius: 16px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.content {
+  padding: 18px 14px;
+  background: linear-gradient(180deg, rgba(17, 28, 49, 0.98), rgba(12, 19, 32, 0.98));
+  margin: 0 14px 14px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow);
+  min-height: 180px;
+  color: var(--muted);
+}
