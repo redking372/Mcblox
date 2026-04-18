@@ -264,3 +264,51 @@ body {
   width: 20px;
   height: 20px;
 }
+/* PLAY BUTTON (PRO + ANIMATED) */
+.button-with-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  width: 100%;
+  height: 50px;
+
+  border-radius: 14px;
+  background: linear-gradient(180deg, #55f2af, #18c27d);
+  border: none;
+
+  color: #072012;
+  font-weight: 900;
+  font-size: 16px;
+
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ICON FIX */
+.button-with-icon svg {
+  width: 20px;
+  height: 20px;
+  transition: 0.4s;
+}
+
+/* TEXT ANIMATION */
+.button-with-icon .text {
+  transition: 0.4s;
+}
+
+/* HOVER EFFECT */
+.button-with-icon:hover .text {
+  transform: translateX(20px);
+}
+
+.button-with-icon:hover svg {
+  transform: translateX(-10px);
+}
+
+/* CLICK EFFECT */
+.button-with-icon:active {
+  transform: scale(0.96);
+}
