@@ -57,7 +57,7 @@
 <div class="glow-card">
 <h2>🎮 Games</h2>
 <p>Steal a Block</p>
-<button class="button-with-icon">
+<button class="button-with-icon" onclick="playClick(this)">
   <svg viewBox="0 0 24 24">
     <path fill="white" d="M8 5v14l11-7z"/>
   </svg>
@@ -81,4 +81,16 @@ auth.onAuthStateChanged(async (user)=>{
 </script>
 
 </body>
+<script>
+function playClick(btn) {
+  // add click animation
+  btn.style.transform = "scale(0.9)";
+  btn.style.filter = "brightness(0.9)";
+
+  // wait 200ms then go page
+  setTimeout(() => {
+    window.location.href = "404.html"; // change later to game.html
+  }, 200);
+}
+</script>
 </html>
