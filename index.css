@@ -232,3 +232,35 @@ body {
 .text {
   transition: 0.4s;
 }
+/* FIXED PLAY BUTTON */
+.button-with-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  width: 100%;   /* full width button */
+  height: 50px;
+
+  border-radius: 14px;
+  background: linear-gradient(180deg, #55f2af, #18c27d);
+  border: none;
+
+  color: #072012;
+  font-weight: 900;
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+/* FIX ICON SIZE */
+.button-with-icon .icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* REMOVE BIG SCALING */
+.button-with-icon svg {
+  width: 20px;
+  height: 20px;
+}
